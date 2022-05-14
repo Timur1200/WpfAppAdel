@@ -35,8 +35,7 @@
             <Button Name="AddBtn" Click="AddClick" FontSize="14" Width="200" Height="30" Margin="10,0" Content="Подтвердить" />
             <Button x:Name="DelBtn" Click="DelClick" Width="120" FontSize="14" Height="30" Margin="10,0" Content="Отклонить" />
             <Button x:Name="Btn3" Click="AddClick" Width="150" FontSize="14" Height="30" Margin="10,0" Content="Распечатать чек" Visibility="Hidden" />
-            <DatePicker Visibility="Collapsed" SelectedDateChanged="Calendar_SelectedDateChanged" Name="Calendar" Width="130"  FontSize="14"   />
-
+          
         </StackPanel>
     </Grid>
 </Page>
