@@ -34,7 +34,7 @@ namespace WpfApp1.Pages.MainWindowPage.Admin
             AddBtn.Visibility = Visibility.Collapsed;
             DelBtn.Visibility = Visibility.Collapsed;
             Btn3.Visibility = Visibility.Visible;
-            Calendar.Visibility = Visibility.Visible;
+          
 
         }
         private readonly string TemplateFileName = System.IO.Path.GetFullPath(@"Word/WordFile.docx");
