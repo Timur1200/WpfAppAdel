@@ -36,7 +36,11 @@
                 <TextBlock Text="Выручка за:" FontSize="14"/>
                 <DatePicker  SelectedDateChanged="Calendar_SelectedDateChanged" Name="Calendar" Width="130"  FontSize="14"   />
             </StackPanel>
-            <TextBlock Name="SumTextBlock" Margin="10" Text="Сумма выручки за день: " />
+            <StackPanel>
+                <TextBlock Name="SumTextBlock" Margin="10" Text="Сумма выручки за день: " />
+                <TextBlock Name="SalaryTextBlock" Margin="10" Text="Зарплата курьера: " />
+            </StackPanel>
+           
             <Button Content="Диаграмма" Click="DiagramClick" />
         </StackPanel>
     </Grid>

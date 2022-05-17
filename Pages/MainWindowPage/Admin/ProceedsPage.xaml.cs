@@ -59,6 +59,7 @@ namespace WpfApp1.Pages.MainWindowPage.Admin
 
             DGridOrder.ItemsSource = _Baskets;
             SumTextBlock.Text = $"Сумма выручки за день: {sum} РУБ";
+            SalaryTextBlock.Text = $"Зарплата курьера: {_Baskets.Count*80} РУБ";
             DGridOrder.Items.Refresh();
         }
 
