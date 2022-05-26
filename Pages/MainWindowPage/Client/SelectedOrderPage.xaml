@@ -4,12 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfApp1.Pages.MainWindowPage.Client"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      FontSize="14"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SelectedOrderPage" Loaded="Page_Loaded">
 
     <Grid Background="AntiqueWhite">
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel MinWidth="300" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock x:Name="TBlockNum" />
             <TextBlock />
             <ListBox x:Name="LBoxProd" />
@@ -17,10 +19,12 @@
             <Button Name="Btn1" Click="SelectPridClick" Content="Выбрать блюдо" FontSize="14" />
             <TextBlock />
             <TextBlock HorizontalAlignment="Center" Name="TBlockAllSum" />
-            <TextBlock x:Name="TBlock1" Text="Введите ваш адрес" />
-            <TextBox AcceptsReturn="True" x:Name="TBoxAddress" />
-            <TextBlock Name="TBlock2" Text="Дополнительная информация" />
-            <TextBox AcceptsReturn="True" x:Name="TBoxDesc" />
+            
+            <TextBox materialDesign:HintAssist.Hint="Адрес" AcceptsReturn="True" x:Name="TBoxAddress" />
+            <TextBlock Name="TBlock2" Text="" />
+            <TextBox materialDesign:HintAssist.Hint="Дополнительная информация" AcceptsReturn="True" x:Name="TBoxDesc" />
+            <TextBlock />
+            <ComboBox Name="PaymentTypeComboBox" materialDesign:HintAssist.Hint="Тип оплаты" />
             <TextBlock />
             <Button Name="Btn2" Click="CompleteClick" Content="Завершить" />
         </StackPanel>

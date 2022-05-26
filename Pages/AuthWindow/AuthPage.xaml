@@ -6,12 +6,14 @@
       xmlns:local="clr-namespace:WpfApp1.Pages.AuthWindow"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="400"
+       xmlns:s="clr-namespace:System;assembly=mscorlib"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       Title="AuthPage">
 
     <Grid Background="AliceBlue">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Введите ваш номер логин" FontSize="14" HorizontalAlignment="Center" />
-            <TextBox Name="TBoxNumber" Width="250" FontSize="14" />
+            <TextBlock Text="Введите ваш номер телефона" FontSize="14" HorizontalAlignment="Center" />
+            <xctk:MaskedTextBox ValueDataType="{x:Type s:String}" Mask="+7(000) 000-0000" Name="TBoxNumber" Width="250" FontSize="14" />
             <TextBlock />
             <TextBlock Text="Введите ваш пароль" FontSize="14" HorizontalAlignment="Center" />
             <PasswordBox Name="TBoxPass" Width="250" FontSize="14" />

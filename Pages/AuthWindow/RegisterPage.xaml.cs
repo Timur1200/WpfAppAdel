@@ -25,7 +25,30 @@ namespace WpfApp1.Pages.AuthWindow
 
         private void RegClick(object sender, RoutedEventArgs e)
         {
-            if (TBoxFio.Text.Length == 0 || TBoxPass.Password.Length == 0 || TBoxNumber.Text.Length == 0)
+           bool IsPhoneBusy =  DbModel.GetContext().Users.Any(q => q.Phone == TBoxNumber.Text);  
+            if (IsPhoneBusy)
+            {
+                MessageBox.Show("Данный номер телефона уже зарегистрирован");
+                return;
+            }
+            bool IsPhoneValid = true;
+            if (TBoxNumber.Text.Length == 0)
+            {
+            IsPhoneValid = false;
+            }
+            else
+            {
+                foreach(char c in (TBoxNumber.Text).ToCharArray())
+                {
+                    if (c == '_') 
+                    {
+                        IsPhoneValid = false; 
+                        break; 
+                    }
+                }
+            }
+
+            if (TBoxFio.Text.Length == 0 || TBoxPass.Password.Length == 0 || !IsPhoneValid)
             {
                 MessageBox.Show("Все поля обязательны для заполнения");
                 return;

@@ -4,14 +4,16 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfApp1.Pages.AuthWindow"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
+     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+         xmlns:s="clr-namespace:System;assembly=mscorlib"
       d:DesignHeight="450" d:DesignWidth="400"
       Title="RegisterPage">
 
     <Grid Background="AliceBlue">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Введите логин" FontSize="14" HorizontalAlignment="Center" />
-            <TextBox Name="TBoxNumber" Width="250" FontSize="14" />
+            <TextBlock Text="Введите номер телефона" FontSize="14" HorizontalAlignment="Center" />
+            <xctk:MaskedTextBox Mask="+7(000) 000-0000" ValueDataType="{x:Type s:String}" Name="TBoxNumber" Width="250" FontSize="14" />
             <TextBlock />
             <TextBlock Text="Введите ваше ФИО" FontSize="14" HorizontalAlignment="Center" />
             <TextBox Name="TBoxFio" Width="250" FontSize="14" />

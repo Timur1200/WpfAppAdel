@@ -24,7 +24,8 @@ namespace WpfApp1.Pages.MainWindowPage.Client
         {
             InitializeComponent();
             basket= b;
-
+            PaymentTypeComboBox.Items.Add("Наличными");
+            PaymentTypeComboBox.Items.Add("Картой");
             TBlockNum.Text = "№ заказа " + b.Id.ToString();
         }
 
@@ -37,10 +38,11 @@ namespace WpfApp1.Pages.MainWindowPage.Client
 
             if (basket.Confirm != null)
             {
-                TBlock1.Visibility = Visibility.Hidden;
+             //  TBlock1.Visibility = Visibility.Hidden;
                 TBlock2.Visibility = Visibility.Hidden;
                 Btn1.Visibility = Visibility.Hidden;
                 Btn2.Visibility = Visibility.Hidden;
+                PaymentTypeComboBox.Visibility = Visibility.Hidden;
                 TBoxAddress.Visibility = Visibility.Hidden;
                 TBoxDesc.Visibility = Visibility.Hidden;
             }
@@ -58,6 +60,7 @@ namespace WpfApp1.Pages.MainWindowPage.Client
             {
                 db.Baskets.Attach(basket);
                 basket.Price = sum;
+                basket.Payment = PaymentTypeComboBox.SelectedItem.ToString();
                 basket.OrderDate = DateTime.Now;
                 basket.Address = TBoxAddress.Text;
                 basket.Desc = TBoxDesc.Text;

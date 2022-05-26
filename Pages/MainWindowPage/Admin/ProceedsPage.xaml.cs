@@ -25,6 +25,7 @@ namespace WpfApp1.Pages.MainWindowPage.Admin
         public ProceedsPage()
         {
             InitializeComponent();
+            Calendar1.SelectedDate = DateTime.Now;
         }
         List <Baskets> _Baskets = new List<Baskets>();  
 
@@ -38,7 +39,11 @@ namespace WpfApp1.Pages.MainWindowPage.Admin
         private void Calendar_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            //  var a = _Baskets.Where(q=>q.OrderDate==Calendar.SelectedDate).ToList();
+            if (checkBox1.IsChecked == true)
+            {
+                Calendar1_SelectedDateChanged(sender, e);
+                return;
+            }
             
             var a = DbModel.GetContext().Baskets.Include(q => q.Users).Where(q => q.Confirm == true).ToList();
            _Baskets.Clear();
@@ -61,13 +66,47 @@ namespace WpfApp1.Pages.MainWindowPage.Admin
             SumTextBlock.Text = $"Сумма выручки за день: {sum} РУБ";
             SalaryTextBlock.Text = $"Зарплата курьера: {_Baskets.Count*80} РУБ";
             DGridOrder.Items.Refresh();
-        }
+        }   
 
-        private void DGridOrder_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        private void Calendar1_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (Calendar.SelectedDate == null || Calendar1.SelectedDate == null) return;
 
+            var a = DbModel.GetContext().Baskets.Include(q => q.Users).Where(q => q.Confirm == true).ToList();
+            _Baskets.Clear();
+            foreach (var item in a)
+            {
+                if (item.OrderDate >= Calendar.SelectedDate && item.OrderDate<= Calendar1.SelectedDate)
+                {
+                    _Baskets.Add(item);
+                }
+
+            }
+
+            int sum = 0;
+            foreach (var item in _Baskets)
+            {
+                sum = sum + item.Price.Value;
+            }
+
+            DGridOrder.ItemsSource = _Baskets;
+            SumTextBlock.Text = $"Сумма выручки: {sum} РУБ";
+            SalaryTextBlock.Text = $"Зарплата курьера: {_Baskets.Count * 80} РУБ";
+            DGridOrder.Items.Refresh();
         }
 
+        private void CheckBoxClick(object sender, RoutedEventArgs e)
+        {
+            if (checkBox1.IsChecked == true)
+            {
+                Calendar1.IsEnabled = true;
+                Calendar1_SelectedDateChanged(null, null);
+            }
+            else
+            {
+                Calendar1.IsEnabled = false;
+            }
+        }
         private void DiagramClick(object sender, RoutedEventArgs e)
         {
             DiagramWindow diagramWindow = new DiagramWindow();

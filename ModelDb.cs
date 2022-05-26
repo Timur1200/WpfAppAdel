@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace WpfApp1
 {
@@ -16,9 +18,39 @@ namespace WpfApp1
             return Context;
         }
     }
+    partial class Products
+    {
+        public BitmapSource Img1
+        {
+            get
+            {
+                if (Img != null) try { return (BitmapSource)new ImageSourceConverter().ConvertFrom(Img); }
+                    catch { return null; }
+                return null;
+            }
+        }
+    }
+
+    public partial class ProductList
+    {
+        public override string ToString()
+        {
+            return $"{Products.Name} X {Amount} шт. Цена={Products.Price}";
+        }
+    }
 
     partial class Baskets
     {
+        public string Status
+        {
+            get
+            {
+                if (Confirm == null) return "Не отправлен";
+                else if (Confirm.Value == false) return "Обработка заказа";
+                else
+                    return "Готово";
+            }
+        }
         public string DateD
         {
             get

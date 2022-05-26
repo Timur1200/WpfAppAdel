@@ -14,7 +14,7 @@
             <RowDefinition Height="0.20*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <DataGrid  FontSize="16" SelectedCellsChanged="DGridOrder_SelectedCellsChanged" AutoGenerateColumns="False" IsReadOnly="True" x:Name="DGridOrder">
+        <DataGrid  FontSize="16"  AutoGenerateColumns="False" IsReadOnly="True" x:Name="DGridOrder">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="№ заказа" Binding="{Binding Id}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Статус" Binding="{Binding Status}"></DataGridTextColumn>
@@ -35,6 +35,12 @@
             <StackPanel Margin="10">
                 <TextBlock Text="Выручка за:" FontSize="14"/>
                 <DatePicker  SelectedDateChanged="Calendar_SelectedDateChanged" Name="Calendar" Width="130"  FontSize="14"   />
+                
+               
+            </StackPanel>
+            <StackPanel Margin="10">
+                <CheckBox Click="CheckBoxClick" Name="checkBox1" Content="Выручка за несколько дней"></CheckBox>
+                <DatePicker IsEnabled="False"  SelectedDateChanged="Calendar1_SelectedDateChanged" Name="Calendar1" Width="130"  FontSize="14"   />
             </StackPanel>
             <StackPanel>
                 <TextBlock Name="SumTextBlock" Margin="10" Text="Сумма выручки за день: " />

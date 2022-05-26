@@ -1,0 +1,31 @@
+﻿<Page x:Class="WpfApp1.Pages.MainWindowPage.Admin.EditOrderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1.Pages.MainWindowPage.Admin"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      FontSize="14"
+      Title="EditOrderPage">
+
+    <Grid Background="AntiqueWhite">
+        <StackPanel MinWidth="300" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock x:Name="TBlockId" />
+
+            <TextBlock x:Name="TBlockPhone" />
+            <TextBlock />
+            
+
+            <TextBox materialDesign:HintAssist.Hint="Адрес" Text="{Binding Address}" AcceptsReturn="True" x:Name="TBoxAddress" />
+            <TextBlock Name="TBlock2" Text="" />
+            <TextBox materialDesign:HintAssist.Hint="Дополнительная информация" Text="{Binding Desc}" AcceptsReturn="True" x:Name="TBoxDesc" />
+            <TextBlock />
+            <ComboBox SelectedItem="{Binding Payment}" Name="PaymentTypeComboBox" materialDesign:HintAssist.Hint="Тип оплаты" />
+            <TextBlock />
+            <Button Name="Btn2" Click="CompleteClick" Content="Сохранить" />
+        </StackPanel>
+
+    </Grid>
+</Page>

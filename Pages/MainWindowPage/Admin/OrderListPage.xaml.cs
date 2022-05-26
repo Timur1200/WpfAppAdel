@@ -58,8 +58,8 @@ namespace WpfApp1.Pages.MainWindowPage.Admin
                 }
                 else
                 {
-                    var a = db.Baskets.Include(q => q.Users).Where(q => q.Confirm == false).ToList();
-                    DGridOrder.ItemsSource = a;
+                    //  var a = db.Baskets.Include(q => q.Users).Where(q => q.Confirm == false).ToList();
+                    DGridOrder.ItemsSource = DbModel.GetContext().Baskets.Include(q => q.Users).Where(q => q.Confirm == false).ToList();
                 }
                 
             }
@@ -148,12 +148,15 @@ namespace WpfApp1.Pages.MainWindowPage.Admin
 
         private void EditClick(object sender, RoutedEventArgs e)
         {
+            if (DGridOrder.SelectedItem == null)
+            {
+                MessageBox.Show("Нужно выбрать запись!");
+                return;
+            }
 
+            Frames.f2.Navigate(new EditOrderPage(DGridOrder.SelectedItem as Baskets));
         }
 
-        private void Calendar_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+        
     }
 }
