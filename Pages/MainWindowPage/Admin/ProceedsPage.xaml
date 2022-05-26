@@ -31,7 +31,7 @@
 
         </DataGrid>
 
-        <StackPanel Background="Tomato" Orientation="Horizontal" Grid.Row="1">
+        <StackPanel Background="White" Orientation="Horizontal" Grid.Row="1">
             <StackPanel Margin="10">
                 <TextBlock Text="Выручка за:" FontSize="14"/>
                 <DatePicker  SelectedDateChanged="Calendar_SelectedDateChanged" Name="Calendar" Width="130"  FontSize="14"   />
@@ -43,8 +43,8 @@
                 <DatePicker IsEnabled="False"  SelectedDateChanged="Calendar1_SelectedDateChanged" Name="Calendar1" Width="130"  FontSize="14"   />
             </StackPanel>
             <StackPanel>
-                <TextBlock Name="SumTextBlock" Margin="10" Text="Сумма выручки за день: " />
-                <TextBlock Name="SalaryTextBlock" Margin="10" Text="Зарплата курьера: " />
+                <TextBlock FontSize="16" Name="SumTextBlock" Margin="5" Text="Сумма выручки за день: " />
+                <TextBlock FontSize="16" Name="SalaryTextBlock" Margin="5" Text="Зарплата курьера: " />
             </StackPanel>
            
             <Button Content="Диаграмма" Click="DiagramClick" />
