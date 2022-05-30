@@ -17,6 +17,7 @@
 
         <StackPanel Grid.Column="1" Background="Tomato">
             <Button FontSize="14" Content="Выйти"  Click="OutClick" />
+            <Button FontSize="14" Content="Справка"  Click="HelpClick" />
             <Button FontSize="14" Content="Назад"  Click="BackClick" />
             
             <Button Click="ProdListClick" FontSize="14" Content="Список блюд"  />

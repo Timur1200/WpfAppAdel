@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1.Windows"
         mc:Ignorable="d"
-        Title="" Height="450" Width="400" Icon="delivery_transportation_4577.ico">
+        Title="" Height="450" WindowStartupLocation="CenterScreen" Width="400" Icon="delivery_transportation_4577.ico">
     <Grid>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
 

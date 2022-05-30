@@ -63,5 +63,11 @@ namespace WpfApp1.Pages.AuthWindow
             TBoxPass.Password = "123";
             AuthClick(null, null);
         }
+
+        private void ForgotPasswordClick(object sender, RoutedEventArgs e)
+        {
+            Windows.ChangePasswordWindow changePasswordWindow = new Windows.ChangePasswordWindow();
+            changePasswordWindow.ShowDialog();
+        }
     }
 }

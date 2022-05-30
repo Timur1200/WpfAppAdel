@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static WpfApp1.Frames;
 using WpfApp1.Windows;
+using System.Diagnostics;
 
 namespace WpfApp1.Pages.MainWindowPage.Admin
 {
@@ -68,6 +69,11 @@ namespace WpfApp1.Pages.MainWindowPage.Admin
         private void ProceedsClick(object sender, RoutedEventArgs e)
         {
             Go(new ProceedsPage());
+        }
+
+        private void HelpClick(object sender, RoutedEventArgs e)
+        {
+            Process.Start(System.IO.Path.GetFullPath(@"help.chm"));
         }
     }
 }

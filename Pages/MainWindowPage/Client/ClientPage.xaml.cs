@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static WpfApp1.Frames;
 using WpfApp1.Pages.MainWindowPage;
+using System.Diagnostics;
 
 namespace WpfApp1.Pages.MainWindowPage.Client
 {
@@ -54,5 +55,11 @@ namespace WpfApp1.Pages.MainWindowPage.Client
         {
             Go(new OrderPage());
         }
+
+        private void HelpClick(object sender, RoutedEventArgs e)
+        {
+            Process.Start(System.IO.Path.GetFullPath(@"help.chm"));
+        }
+        
     }
 }
