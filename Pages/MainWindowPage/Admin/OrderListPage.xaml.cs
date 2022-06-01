@@ -76,7 +76,7 @@ namespace WpfApp1.Pages.MainWindowPage.Admin
             {
                 return;
             }
-            try
+           // try
             {
                 var basket = (Baskets)DGridOrder.SelectedItem;
                 string ListProd = "";
@@ -108,17 +108,16 @@ namespace WpfApp1.Pages.MainWindowPage.Admin
 
                 wordApp.Visible = true;
 
-                using (DbModel db = new DbModel())
-                {
-                    db.Baskets.Attach(basket);
+                
+                  
                     basket.Confirm = true;
-                    db.SaveChanges();
+                    DbModel.GetContext().SaveChanges();
                     Page_Loaded(null,null);
-                }
+                
             }
-            catch(Exception ex)
+         //   catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+           //     MessageBox.Show(ex.ToString());
             }
 
         }
