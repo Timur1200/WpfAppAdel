@@ -129,20 +129,21 @@ namespace WpfApp1.Pages.MainWindowPage.Admin
                 return;
             }
 
-            try
+            //try
             {
-                using (DbModel db = new DbModel())
-                {
-                    var q = (Baskets)DGridOrder.SelectedItem;
-                    db.Baskets.Attach(q);
-                    db.Baskets.Remove(q);
-                    MessageBox.Show("Заказ был отклонен!");
-                }
+
+                var q = (Baskets)DGridOrder.SelectedItem;
+                var listProd = DbModel.GetContext().ProductList.Where(a=>a.IdBasket==q.Id).ToList();
+                DbModel.GetContext().ProductList.RemoveRange(listProd);
+                DbModel.GetContext().Baskets.Remove(q);
+                DbModel.GetContext().SaveChanges();
+                MessageBox.Show("Заказ был отклонен!");
+                Page_Loaded(null, null);
             }
-            catch
-            {
-                MessageBox.Show("Произошла ошибка!");
-            }
+            //catch
+            //{
+            //    MessageBox.Show("Произошла ошибка!");
+            //}
         }
 
         private void EditClick(object sender, RoutedEventArgs e)
